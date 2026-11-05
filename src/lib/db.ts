@@ -51,12 +51,6 @@ export async function get<T>(
     );
   });
 }
-  //   return new Promise<sqlite3.Database>((resolve, reject) => {
-  //    const db = new sqlite3.Database(DB_PATH, (err) =>
-  //      err ? reject(err) : resolve(db),
-  //    );
-  //   }).then(migrate);
-  // }
 
 export async function run(sql: string, params: Param[] = []): Promise<void> {
   const db = await getDb();
