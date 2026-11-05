@@ -24,9 +24,9 @@ export default function AdminLayout({
         </Link>
         {/* <AdminNav /> */}
         {/* usePathname() is runtime data on dynamic routes like /admin/products/[id] */}
-+        <Suspense fallback={<AdminNavFallback />}>
-+          <AdminNav />
-+        </Suspense>
+        <Suspense fallback={<AdminNavFallback />}>
+          <AdminNav />
+        </Suspense>
         <div className="mt-auto flex flex-col gap-3 px-6 py-5 text-sm text-white/70">
           <FailureToggle />
           <Link href="/" className="hover:text-white">
