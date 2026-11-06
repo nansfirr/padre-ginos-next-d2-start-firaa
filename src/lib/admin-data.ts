@@ -1,4 +1,5 @@
 import "server-only";
+import { cacheLife } from "next/cache";
 import { all, get, run } from "./db";
 import { failReadIfSimulated, simulateLatency } from "./demo";
 import type { OrderStatus } from "./orders";
@@ -176,6 +177,8 @@ export async function getLatestDay(): Promise<{
 export async function getTopPizzas(): Promise<
   { id: string; name: string; sold: number; revenue: number }[]
 > {
+  "use cache";
+  cacheLife("hours");
   await simulateLatency("read");
   await new Promise((resolve) => setTimeout(resolve, 1500));
   return all(
